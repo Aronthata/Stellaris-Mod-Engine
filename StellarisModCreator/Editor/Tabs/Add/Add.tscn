@@ -1,0 +1,160 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhn4noxvvhoca"]
+
+[ext_resource type="Script" path="res://Editor/Tabs/Add/Add.gd" id="1_iavyk"]
+[ext_resource type="PackedScene" uid="uid://c0xc1a8pd6yuo" path="res://Editor/Tabs/Add/AddButton.tscn" id="2_0xkak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14rj2"]
+bg_color = Color(1, 1, 1, 0.196078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfyf2"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2ywb"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="+" type="TabBar"]
+custom_minimum_size = Vector2(1152, 617)
+script = ExtResource("1_iavyk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 1136.0
+offset_bottom = 617.0
+theme_override_constants/separation = 10
+
+[node name="ColorRect" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_14rj2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="Traits" type="Button" parent="HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfyf2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2ywb")
+toggle_mode = true
+text = "Traits"
+
+[node name="Species" type="Button" parent="HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfyf2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2ywb")
+toggle_mode = true
+text = "Species"
+
+[node name="Origns" type="Button" parent="HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfyf2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2ywb")
+toggle_mode = true
+text = "Origins"
+
+[node name="Shipsets" type="Button" parent="HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfyf2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2ywb")
+toggle_mode = true
+text = "Shipsets"
+
+[node name="Events" type="Button" parent="HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfyf2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2ywb")
+toggle_mode = true
+text = "Events"
+
+[node name="Buildings" type="Button" parent="HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfyf2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2ywb")
+toggle_mode = true
+text = "Buildings"
+
+[node name="Tech" type="Button" parent="HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfyf2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2ywb")
+toggle_mode = true
+text = "Technology"
+
+[node name="Jobs" type="Button" parent="HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfyf2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2ywb")
+toggle_mode = true
+text = "Jobs"
+
+[node name="Civics" parent="HBoxContainer/ColorRect/VBoxContainer" instance=ExtResource("2_0xkak")]
+layout_mode = 2
+
+[node name="ColorRect2" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_14rj2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect3" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_14rj2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect4" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_14rj2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ColorRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

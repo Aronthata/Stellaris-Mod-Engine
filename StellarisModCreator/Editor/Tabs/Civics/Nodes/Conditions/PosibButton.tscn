@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj5rxiq3t0oll"]
+
+[ext_resource type="Script" path="res://Editor/Tabs/Civics/CivicWindows/FButton.gd" id="1_5yo8d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbs6c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button"]
+theme_override_styles/normal = SubResource("StyleBoxFlat_nbs6c")
+text = "hello"
+alignment = 0
+script = ExtResource("1_5yo8d")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

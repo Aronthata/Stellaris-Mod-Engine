@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf7g45lqeacaq"]
+
+[ext_resource type="Script" path="res://Menu/Warning Notification.gd" id="1_mptxv"]
+[ext_resource type="FontFile" uid="uid://dab1cjmuicijs" path="res://UI/NotoSans-Regular.ttf" id="1_vh7t1"]
+
+[node name="Window" type="Window"]
+title = "Warning!"
+initial_position = 2
+size = Vector2i(500, 150)
+exclusive = true
+unresizable = true
+always_on_top = true
+popup_window = true
+min_size = Vector2i(500, 150)
+max_size = Vector2i(500, 150)
+script = ExtResource("1_mptxv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(500, 150)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 500.0
+offset_bottom = 100.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_vh7t1")
+theme_override_font_sizes/font_size = 18
+text = "Warning the keywords \"Document\" and \"mod\" were not found in the current directory please be advised that further use can cause computer failure if not corrected"
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Cancel" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Cancel"
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Continue"
+
+[connection signal="button_up" from="VBoxContainer/MarginContainer/HBoxContainer/Cancel" to="." method="_on_cancel_button_up"]
+[connection signal="button_up" from="VBoxContainer/MarginContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]

@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://b0mklttao147m"]
+
+[node name="Bar" type="TabBar"]
+custom_minimum_size = Vector2(1152, 617)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0xc1a8pd6yuo"]
+
+[ext_resource type="Script" path="res://Editor/Tabs/Add/AddButton.gd" id="1_4r3vl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfyf2"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2ywb"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="AddButton" type="Button"]
+offset_right = 272.0
+offset_bottom = 24.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfyf2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2ywb")
+text = "Civics"
+script = ExtResource("1_4r3vl")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

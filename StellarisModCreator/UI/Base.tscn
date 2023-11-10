@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7gemvyxmvkob"]
+
+[ext_resource type="Script" path="res://UI/Base.gd" id="1_cjprx"]
+[ext_resource type="FontFile" uid="uid://dab1cjmuicijs" path="res://UI/NotoSans-Regular.ttf" id="1_dbmfy"]
+[ext_resource type="PackedScene" uid="uid://c5ofbldfrjy37" path="res://UI/collapsible.tscn" id="2_7nh5q"]
+[ext_resource type="PackedScene" uid="uid://b3pw0dr8s4371" path="res://Editor/Tabs/Civics/CivicWindows/CivicNodes.tscn" id="4_yu1tx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d10rv"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjjpf"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[node name="Base" type="VBoxContainer" node_paths=PackedStringArray("collapsible", "CNNWind")]
+offset_right = 1152.0
+offset_bottom = 8.0
+theme_override_constants/separation = 0
+script = ExtResource("1_cjprx")
+collapsible = NodePath("HBoxContainer/collapsible")
+CNNWind = NodePath("MarginContainer/VBoxContainer/Window")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Add" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dbmfy")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_d10rv")
+text = "+"
+
+[node name="collapsible" parent="HBoxContainer" node_paths=PackedStringArray("Child") instance=ExtResource("2_7nh5q")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_wjjpf")
+Child = NodePath("../../MarginContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Window" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_yu1tx")]
+visible = false
+
+[connection signal="button_up" from="HBoxContainer/Add" to="." method="_on_add_button_up"]

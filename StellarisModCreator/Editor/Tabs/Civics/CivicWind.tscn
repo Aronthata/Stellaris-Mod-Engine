@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://m4jxvpg6saho"]
+
+[ext_resource type="Script" path="res://Editor/Tabs/Civics/CivicWind.gd" id="1_tddi8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbgb0"]
+bg_color = Color(0.211765, 0.239216, 0.290196, 1)
+
+[node name="Window" type="Window"]
+title = "Create Civic"
+initial_position = 1
+size = Vector2i(600, 100)
+transient = true
+unresizable = true
+popup_window = true
+min_size = Vector2i(600, 100)
+content_scale_mode = 1
+content_scale_aspect = 2
+script = ExtResource("1_tddi8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(600, 400)
+offset_right = 600.0
+offset_bottom = 400.0
+color = Color(0.145098, 0.168627, 0.203922, 1)
+
+[node name="VBoxContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(600, 400)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+placeholder_text = "Civic Name:"
+
+[node name="Button" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbgb0")
+text = "Create"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

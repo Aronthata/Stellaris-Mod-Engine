@@ -1,0 +1,165 @@
+[gd_scene load_steps=9 format=3 uid="uid://bn42a2gk86wp1"]
+
+[ext_resource type="Script" path="res://Template/Templates.gd" id="1_g3pgo"]
+[ext_resource type="Texture2D" uid="uid://c5oroyvgahgbq" path="res://Template/Sprites/Civic.png" id="2_bxq2c"]
+[ext_resource type="Texture2D" uid="uid://b25k3louy1cw4" path="res://Template/Sprites/Yes.tres" id="2_noxye"]
+[ext_resource type="FontFile" uid="uid://dab1cjmuicijs" path="res://UI/NotoSans-Regular.ttf" id="2_rmw7a"]
+[ext_resource type="Texture2D" uid="uid://brrkaga247v66" path="res://Template/Sprites/trait.png" id="3_gnj8x"]
+[ext_resource type="Texture2D" uid="uid://cpq65l82jpb4t" path="res://Template/Sprites/No.tres" id="3_ve5c3"]
+
+[sub_resource type="Gradient" id="Gradient_pyic2"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0.0470588, 0.270588, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o71x2"]
+gradient = SubResource("Gradient_pyic2")
+fill = 2
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_g3pgo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_o71x2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 1088.0
+offset_bottom = 584.0
+
+[node name="Templates" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="World Creation" type="VBoxContainer" parent="VBoxContainer/Templates"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/Templates/World Creation"]
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 26
+text = "World building"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Civics" type="CheckButton" parent="VBoxContainer/Templates/World Creation"]
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rmw7a")
+theme_override_font_sizes/font_size = 21
+theme_override_icons/checked = ExtResource("2_noxye")
+theme_override_icons/unchecked = ExtResource("3_ve5c3")
+text = "Civics"
+icon = ExtResource("2_bxq2c")
+
+[node name="Traits" type="CheckButton" parent="VBoxContainer/Templates/World Creation"]
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rmw7a")
+theme_override_font_sizes/font_size = 21
+theme_override_icons/checked = ExtResource("2_noxye")
+theme_override_icons/unchecked = ExtResource("3_ve5c3")
+text = "Traits"
+icon = ExtResource("3_gnj8x")
+
+[node name="Species" type="CheckButton" parent="VBoxContainer/Templates/World Creation"]
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rmw7a")
+theme_override_font_sizes/font_size = 21
+theme_override_icons/checked = ExtResource("2_noxye")
+theme_override_icons/unchecked = ExtResource("3_ve5c3")
+text = "Species"
+
+[node name="Origins" type="CheckButton" parent="VBoxContainer/Templates/World Creation"]
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rmw7a")
+theme_override_font_sizes/font_size = 21
+theme_override_icons/checked = ExtResource("2_noxye")
+theme_override_icons/unchecked = ExtResource("3_ve5c3")
+text = "Origins"
+
+[node name="ShipSets" type="CheckButton" parent="VBoxContainer/Templates/World Creation"]
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rmw7a")
+theme_override_font_sizes/font_size = 21
+theme_override_icons/checked = ExtResource("2_noxye")
+theme_override_icons/unchecked = ExtResource("3_ve5c3")
+text = "Shipsets"
+
+[node name="Gameplay" type="VBoxContainer" parent="VBoxContainer/Templates"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/Templates/Gameplay"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 26
+text = "Game 
+Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Events" type="CheckButton" parent="VBoxContainer/Templates/Gameplay"]
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rmw7a")
+theme_override_font_sizes/font_size = 21
+theme_override_icons/checked = ExtResource("2_noxye")
+theme_override_icons/unchecked = ExtResource("3_ve5c3")
+text = "Events"
+
+[node name="Buildings" type="CheckButton" parent="VBoxContainer/Templates/Gameplay"]
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rmw7a")
+theme_override_font_sizes/font_size = 21
+theme_override_icons/checked = ExtResource("2_noxye")
+theme_override_icons/unchecked = ExtResource("3_ve5c3")
+text = "Buildings"
+
+[node name="Tech" type="CheckButton" parent="VBoxContainer/Templates/Gameplay"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rmw7a")
+theme_override_font_sizes/font_size = 21
+theme_override_icons/checked = ExtResource("2_noxye")
+theme_override_icons/unchecked = ExtResource("3_ve5c3")
+text = "Technology"
+
+[node name="Jobs" type="CheckButton" parent="VBoxContainer/Templates/Gameplay"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rmw7a")
+theme_override_font_sizes/font_size = 21
+theme_override_icons/checked = ExtResource("2_noxye")
+theme_override_icons/unchecked = ExtResource("3_ve5c3")
+text = "jobs"
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+alignment = 2
+
+[node name="Build" type="Button" parent="VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Build"
+
+[connection signal="pressed" from="VBoxContainer/Buttons/Build" to="." method="_on_build_pressed"]

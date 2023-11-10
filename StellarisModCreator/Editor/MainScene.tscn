@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb7dw880abtfe"]
+
+[ext_resource type="Script" path="res://Editor/MainScene.gd" id="1_hs8gx"]
+[ext_resource type="PackedScene" uid="uid://dhn4noxvvhoca" path="res://Editor/Tabs/Add/Add.tscn" id="2_enehe"]
+
+[sub_resource type="Gradient" id="Gradient_r6ulb"]
+colors = PackedColorArray(0, 0.0470588, 0.270588, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pleb3"]
+gradient = SubResource("Gradient_r6ulb")
+fill_to = Vector2(1, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hs8gx")
+
+[node name="Backdrop" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_pleb3")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+drag_to_rearrange_enabled = true
+
+[node name="+" parent="TabContainer" instance=ExtResource("2_enehe")]
+layout_mode = 2

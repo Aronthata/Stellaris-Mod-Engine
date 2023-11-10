@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfbg8any5sq06"]
+
+[ext_resource type="FontFile" uid="uid://dab1cjmuicijs" path="res://UI/NotoSans-Regular.ttf" id="1_cjbtu"]
+[ext_resource type="Script" path="res://Editor/Tabs/Civics/Civics.gd" id="1_rixye"]
+[ext_resource type="PackedScene" uid="uid://m4jxvpg6saho" path="res://Editor/Tabs/Civics/CivicWind.tscn" id="3_d72il"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t388a"]
+bg_color = Color(0.211765, 0.239216, 0.290196, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbo1q"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uli0v"]
+bg_color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[node name="Bar" type="TabBar"]
+custom_minimum_size = Vector2(1152, 617)
+script = ExtResource("1_rixye")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Exit" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "X"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_t388a")
+text = "Civics"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wbo1q")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cjbtu")
+theme_override_font_sizes/font_size = 21
+text = "+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_uli0v")
+
+[node name="CivicNodes" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Window" parent="VBoxContainer/ScrollContainer/PanelContainer/CivicNodes" instance=ExtResource("3_d72il")]
+visible = false
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer2/Exit" to="." method="_on_exit_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="CCreate" from="VBoxContainer/ScrollContainer/PanelContainer/CivicNodes/Window" to="." method="_on_window_c_create"]

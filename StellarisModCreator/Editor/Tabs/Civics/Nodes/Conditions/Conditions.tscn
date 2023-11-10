@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm2a4txwmgiio"]
+
+[ext_resource type="PackedScene" uid="uid://c5ofbldfrjy37" path="res://UI/collapsible.tscn" id="1_d8hfo"]
+
+[node name="Conditions" type="VBoxContainer"]
+offset_right = 1152.0
+offset_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "+"
+
+[node name="collapsible" parent="HBoxContainer" node_paths=PackedStringArray("Child") instance=ExtResource("1_d8hfo")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Conditions"
+Child = NodePath("../../VBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2

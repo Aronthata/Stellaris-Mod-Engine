@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://q0sfjpo6rqrn"]
+
+[node name="Icon" type="VBoxContainer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2

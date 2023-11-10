@@ -1,0 +1,143 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3pw0dr8s4371"]
+
+[ext_resource type="Script" path="res://Editor/Tabs/Civics/CivicWindows/CivicNodes.gd" id="1_87ldj"]
+[ext_resource type="Script" path="res://Editor/Tabs/Civics/NodeList.gd" id="2_2yeik"]
+[ext_resource type="PackedScene" uid="uid://trdwfgykpth5" path="res://Editor/Tabs/Civics/CivicWindows/FButton.tscn" id="3_nu213"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbgb0"]
+bg_color = Color(0.211765, 0.239216, 0.290196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1oar"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pqce6"]
+bg_color = Color(0.109804, 0.117647, 0.133333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3467c"]
+bg_color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rq8y0"]
+bg_color = Color(0.129412, 0.14902, 0.180392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[node name="Window" type="Window"]
+title = "Add Node"
+initial_position = 1
+size = Vector2i(600, 400)
+transient = true
+unresizable = true
+popup_window = true
+min_size = Vector2i(600, 400)
+content_scale_mode = 1
+content_scale_aspect = 2
+script = ExtResource("1_87ldj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(600, 400)
+offset_right = 600.0
+offset_bottom = 400.0
+color = Color(0.145098, 0.168627, 0.203922, 1)
+
+[node name="VBoxContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(600, 400)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+placeholder_text = "Search:"
+
+[node name="Create" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbgb0")
+text = "Create"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w1oar")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pqce6")
+text = "Nodes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_3467c")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+
+[node name="NodeList" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+script = ExtResource("2_2yeik")
+
+[node name="Conditions" parent="VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/PanelContainer/MarginContainer/NodeList" node_paths=PackedStringArray("label") instance=ExtResource("3_nu213")]
+editor_description = "Requirements for civic to be selectable"
+layout_mode = 2
+text = "Conditions"
+label = NodePath("../../../../../../../Description")
+
+[node name="Effects" parent="VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/PanelContainer/MarginContainer/NodeList" node_paths=PackedStringArray("label") instance=ExtResource("3_nu213")]
+editor_description = "The effects the civic Grants"
+layout_mode = 2
+text = "Effects"
+label = NodePath("../../../../../../../Description")
+
+[node name="VisibleConditions" parent="VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/PanelContainer/MarginContainer/NodeList" node_paths=PackedStringArray("label") instance=ExtResource("3_nu213")]
+editor_description = "conditions to make the civic appear"
+layout_mode = 2
+text = "Visible Conditions"
+label = NodePath("../../../../../../../Description")
+
+[node name="Icon" parent="VBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/PanelContainer/MarginContainer/NodeList" node_paths=PackedStringArray("label") instance=ExtResource("3_nu213")]
+editor_description = "adds an icon to civic"
+layout_mode = 2
+text = "Icon"
+label = NodePath("../../../../../../../Description")
+
+[node name="Description" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rq8y0")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="text_changed" from="VBoxContainer/VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="button_up" from="VBoxContainer/VBoxContainer/HBoxContainer/Create" to="." method="_on_create_button_up"]
